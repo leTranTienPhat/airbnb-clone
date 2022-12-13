@@ -1,26 +1,36 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
-  box-sizing: border-box;
+  user-select: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .padding-container {
+    @apply px-20;
   }
-  body {
-    color: white;
-    background: black;
+  .custom-border {
+    @apply border-[1px] border-text-inactive shadow hover:shadow-xl transition-shadow focus:shadow-xl;
   }
+  .bottom-border {
+    @apply border-b-[1px] border-text-inactive;
+  }
+  .transparent-background {
+    @apply bg-gradient-to-r from-white-basic to-white-transparent;
+  }
+  .selected {
+    @apply bg-white-basic shadow-2xl;
+  }
+}
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
