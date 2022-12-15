@@ -28,25 +28,63 @@ const GuestsAdjustment = ({ guest }: Props) => {
       break;
   }
 
-  const handleAdjustment = (value: number, action: string) => {
-    if (action === "decrease" && value > 0) {
-      setStateFilterOption({
-        ...stateFilterOption,
-        filterGuest: {
-          ...stateFilterOption.filterGuest,
-          [currentParam]: value - 1
+  const handleIncrease = (type: string) => {
+    setStateFilterOption({
+      ...stateFilterOption,
+      filterGuest: {
+        ...stateFilterOption.filterGuest,
+        [type]: stateFilterOption.filterGuest[type] + 1
+      }
+    })
+  }
+
+  const increaseBasedOnAdult = (type: string) => {
+    if (type !== "adults") {
+      if (stateFilterOption.filterGuest.adults === 0) {
+        setStateFilterOption({
+          ...stateFilterOption,
+          filterGuest: {
+            ...stateFilterOption.filterGuest,
+            adults: 1,
+            [currentParam]: stateFilterOption.filterGuest[currentParam] + 1
+          }
+        })
+      } else {
+        handleIncrease(type)
+      }
+    } else {
+      handleIncrease(type)
+    }
+  }
+
+  const handleDecrease = (type: string) => {
+    setStateFilterOption({
+      ...stateFilterOption,
+      filterGuest: {
+        ...stateFilterOption.filterGuest,
+        [type]: stateFilterOption.filterGuest[type] - 1
+      }
+    })
+  }
+  const decreaseBasedOnAdult = (type: string) => {
+    if (stateFilterOption.filterGuest[type] > 0)
+      if (type === "adults" && stateFilterOption.filterGuest.adults <= 1) {
+        if (stateFilterOption.filterGuest.children + stateFilterOption.filterGuest.infants + stateFilterOption.filterGuest.pets > 0) {
+          return;
+        } else {
+          handleDecrease(type)
         }
-      })
+      } else {
+        handleDecrease(type)
+      }
+  }
+
+  const handleAdjustment = (action: string) => {
+    if (action === "decrease") {
+      decreaseBasedOnAdult(currentParam)
     }
     if (action === "increase") {
-      // @ts-ignore
-      setStateFilterOption({
-        ...stateFilterOption,
-        filterGuest: {
-          ...stateFilterOption.filterGuest,
-          [currentParam]: value + 1
-        }
-      })
+      increaseBasedOnAdult(currentParam, action)
     }
   }
 
@@ -57,11 +95,11 @@ const GuestsAdjustment = ({ guest }: Props) => {
         <p>{guest.subText}</p>
       </div>
       <div className="flex items-center gap-4">
-        <div className="flex justify-center items-center w-8 h-8 border-[1px] border-text-active rounded-full" onClick={() => handleAdjustment(stateFilterOption.filterGuest[currentParam], "decrease")}>
+        <div className="flex justify-center items-center w-8 h-8 border-[1px] border-text-active rounded-full" onClick={() => handleAdjustment("decrease")}>
           <p>-</p>
         </div>
         <p>{stateFilterOption.filterGuest[currentParam]}</p>
-        <div className="flex justify-center items-center w-8 h-8 border-[1px] border-text-active rounded-full" onClick={() => handleAdjustment(stateFilterOption.filterGuest[currentParam], "increase")}>
+        <div className="flex justify-center items-center w-8 h-8 border-[1px] border-text-active rounded-full" onClick={() => handleAdjustment("increase")}>
           <p>+</p>
         </div>
       </div>
