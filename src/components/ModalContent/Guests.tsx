@@ -1,7 +1,16 @@
+import { guests } from "../../constants/staticText";
+import GuestsAdjustment from "./GuestsAdjustment";
+
 const Guests = () => {
   return (
     <div className="">
-      Add Guests
+      {guests.map(guest => {
+        return (
+          <div key={guest.id}>
+            <GuestsAdjustment guest={guest} />
+          </div>
+        )
+      })}
     </div>
   )
 }

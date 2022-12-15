@@ -13,7 +13,6 @@ const DetailedFilter = ({ openDetailedFilter, handleOpenDetailedFilter }: Props)
   const [stateFilterCategory, setStateFilterCategory] = useContext(FilterCategoryContext)
 
   const handleSelectFilter = (optionId: number) => {
-    console.log(stateFilterCategory)
     //@ts-ignore
     setStateFilterCategory({
       ...stateFilterCategory,

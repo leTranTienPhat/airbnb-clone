@@ -59,3 +59,37 @@ export const filterMenuExperience: filterOption[] = [
 
   },
 ]
+
+export interface guestsType {
+  id: number,
+  text: string,
+  subText: string,
+  amount: number
+}
+
+export const guests: guestsType[] = [
+  {
+    id: 1,
+    text: "Adults",
+    subText: "Ages 13 or above",
+    amount: 0
+  },
+  {
+    id: 2,
+    text: "Children",
+    subText: "Ages 2-12",
+    amount: 0
+  },
+  {
+    id: 3,
+    text: "Infants",
+    subText: "Under 2",
+    amount: 0
+  },
+  {
+    id: 4,
+    text: "Pets",
+    subText: "Bring a service animal?",
+    amount: 0
+  },
+]

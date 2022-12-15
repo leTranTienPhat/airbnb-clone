@@ -5,7 +5,7 @@ interface Props {
 }
 
 interface filterOptionsType {
-  filterRegionSelection: number,
+  filterRegionSelection: string,
   filterStartDateSelection: number,
   filterEndDateSelection: number,
   filterGuest: {
@@ -16,7 +16,7 @@ interface filterOptionsType {
   }
 }
 const filterOptions: filterOptionsType = {
-  filterRegionSelection: 0,
+  filterRegionSelection: "",
   filterStartDateSelection: 0,
   filterEndDateSelection: 0,
   filterGuest: {
