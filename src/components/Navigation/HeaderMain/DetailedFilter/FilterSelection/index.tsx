@@ -33,7 +33,7 @@ const FilterSelection = ({ isSelected, filterOption, handleSelectFilter, expande
   const checkEmpty = () => {
     const { adults, children, infants, pets } = stateFilterOption.filterGuest
     if (adults + children + infants + pets > 0)
-      return `${adults + children ? `${adults + children} guest${adults + children > 1 ? "s" : ""}` : ""} ${infants ? `${infants} infant${infants > 1 ? "s" : ""}` : ""} ${pets ? `${pets} pet${pets > 1 ? "s" : ""}` : ""}`
+      return `${adults + children ? `${adults + children} guest${adults + children > 1 ? "s" : ""}` : ""}${infants ? `, ${infants} infant${infants > 1 ? "s" : ""}` : ""}${pets ? `, ${pets} pet${pets > 1 ? "s" : ""}` : ""}`
     else return filterOption.subText
   }
 
