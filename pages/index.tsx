@@ -17,7 +17,6 @@ export default function Home() {
         <meta name="description" content="Airbnb clone" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <FilterCategoryProvider>
         <FilterOptionProvider>
           <FrontPage />

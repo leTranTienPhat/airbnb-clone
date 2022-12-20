@@ -8,7 +8,7 @@ interface Props {
   filterOption: filterOption
   handleSelectFilter: any
   expandedSecondSelection?: boolean
-  children: React.ReactElement;
+  children?: React.ReactElement;
 }
 
 const FilterSelection = ({ isSelected, filterOption, handleSelectFilter, expandedSecondSelection, children }: Props) => {
@@ -42,7 +42,6 @@ const FilterSelection = ({ isSelected, filterOption, handleSelectFilter, expande
       className={`relative hover:bg-light-gray rounded-full p-6 cursor-pointer ${isSelected ? "selected" : ""} ${expandedSecondSelection ? "min-w-[240px]" : "min-w-[120px]"} min-h-[96px]`}
       onClick={() => handleSelectFilter(filterOption.id)}>
       <p>{filterOption.text}</p>
-      {/* <p className="text-text-inactive">{filterOption.subText}</p> */}
       {currentParam === "filterGuest"
         ?
         <p className="text-text-inactive">{checkEmpty()}</p>

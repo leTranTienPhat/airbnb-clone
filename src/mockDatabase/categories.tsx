@@ -79,7 +79,7 @@ export const categories: Category[] = [
   },
   {
     id: 15,
-    text: " Domes",
+    text: "Domes",
     icon: mockIcon
   },
   {

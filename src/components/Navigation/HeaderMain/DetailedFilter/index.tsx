@@ -78,9 +78,9 @@ const DetailedFilter = ({ openDetailedFilter, handleOpenDetailedFilter }: Props)
                 isSelected={stateFilterCategory.filterSelectionFirstLevel === option.id ? true : false}
                 filterOption={option}
                 handleSelectFilter={handleSelectFilter}>
-                <Modal>
+                {<Modal>
                   {option.modalContent}
-                </Modal>
+                </Modal>}
               </FilterSelection>
             )
           }

@@ -6,8 +6,8 @@ interface Props {
 
 interface filterOptionsType {
   filterRegionSelection: string,
-  filterStartDateSelection: number,
-  filterEndDateSelection: number,
+  filterStartDateSelection: Date | null | object,
+  filterEndDateSelection: Date | null | object,
   filterGuest: {
     adults: number,
     children: number,
@@ -17,8 +17,8 @@ interface filterOptionsType {
 }
 const filterOptions: filterOptionsType = {
   filterRegionSelection: "",
-  filterStartDateSelection: 0,
-  filterEndDateSelection: 0,
+  filterStartDateSelection: null,
+  filterEndDateSelection: null,
   filterGuest: {
     adults: 0,
     children: 0,

@@ -1,4 +1,4 @@
-import DatePicker from "../components/ModalContent/DatePicker";
+import DatePicker from "../components/ModalContent/CustomDatePicker";
 import Guests from "../components/ModalContent/Guests";
 import WhereTo from "../components/ModalContent/WhereTo";
 
